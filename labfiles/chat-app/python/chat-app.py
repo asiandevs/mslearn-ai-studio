@@ -45,14 +45,14 @@ def main():
                 print("Please enter a prompt.")
                 continue
             
-            # Get a chat completion
-            prompt.append({"role": "user", "content": input_text})
-            response = openai_client.chat.completions.create(
-                        model=model_deployment,
-                        messages=prompt)
-                        completion = response.choices[0].message.content
-                        print(completion)
-                        prompt.append({"role": "assistant", "content": completion})
+        # Get a chat completion
+        prompt.append({"role": "user", "content": input_text})
+        response = openai_client.chat.completions.create(
+                model=model_deployment,
+                messages=prompt)
+        completion = response.choices[0].message.content
+        print(completion)
+        prompt.append({"role": "assistant", "content": completion})
     
  except Exception as ex:
         print(ex)
